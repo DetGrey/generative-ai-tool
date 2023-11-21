@@ -5,13 +5,64 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Santa's Gift List</title>
+
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<label for="fridge">What do you have in your fridge?</label>
-<input id="fridge" type="text">
-<button>Click here</button>
-<p class="suggestions"></p>
+<header>
+    <h1>Santa's Gift List</h1>
+    <h2>Looking for the perfect present for someone you hold dear?
+        <br> Or to your siblings on the naughty list?</h2>
+</header>
+<main>
+<!--    ------------------------------------------------- FILTERS -->
+    <section>
+        <!--    GENDER    -->
+        <div>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="undefined" value="undefined" checked="checked">
+            <label for="undefined">Not important</label>
+        </div>
+        <!--    AGE    -->
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="0" max="110" value="30">
+        </div>
+        <!--    OPTIONS    -->
+        <div>
+            <input type="checkbox" id="personalized" value="personalized" name="extra-options">
+            <label for="personalized">Personalized</label>
+            <input type="checkbox" id="diy" value="diy" name="extra-options">
+            <label for="diy">DIY</label>
+            <input type="checkbox" id="premade" value="premade" name="extra-options">
+            <label for="premade">Premade</label>
+        </div>
+        <!--    Relationship    -->
+        <div>
+            <label for="relationship">Relation to you:</label>
+            <select name="relationship" id="relationship">
+                <option value="undefined" selected>undefined</option>
+                <option value="friend">friend</option>
+                <option value="parent">parent</option>
+                <option value="sibling">sibling</option>
+                <option value="best-friend">best friend</option>
+                <option value="significant other">significant other</option>
+                <option value="work relation">work relation</option>
+            </select>
+        </div>
+        <!--    Optional suggestions    -->
+        <label for="user-suggestions">Any hobbies or suggestions:</label>
+        <input id="user-suggestions" type="text">
+        <button>Click here</button>
+        <p class="suggestions"></p>
+    </section>
+
+</main>
+
 <script src="utils.js"></script>
 <script src="main.js"></script>
 </body>
