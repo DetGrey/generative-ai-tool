@@ -12,55 +12,111 @@
 <body>
 <header>
     <h1>Santa's Gift List</h1>
-    <h2>Looking for the perfect present for someone you hold dear?
-        <br> Or to your siblings on the naughty list?</h2>
+    <h2>Looking for the perfect present for someone dear to you?</h2>
+    <h2>Or to your siblings on the naughty list?</h2>
 </header>
 <main>
 <!--    ------------------------------------------------- FILTERS -->
-    <section>
-        <!--    GENDER    -->
-        <div>
-            <input type="radio" name="gender" id="female" value="female">
-            <label for="female">Female</label>
-            <input type="radio" name="gender" id="male" value="male">
-            <label for="male">Male</label>
-            <input type="radio" name="gender" id="undefined" value="undefined" checked="checked">
-            <label for="undefined">Not important</label>
-        </div>
-        <!--    AGE    -->
-        <div>
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" min="0" max="110" value="30">
-        </div>
-        <!--    OPTIONS    -->
-        <div>
-            <input type="checkbox" id="personalized" value="personalized" name="extra-options">
-            <label for="personalized">Personalized</label>
-            <input type="checkbox" id="diy" value="diy" name="extra-options">
-            <label for="diy">DIY</label>
-            <input type="checkbox" id="premade" value="premade" name="extra-options">
-            <label for="premade">Premade</label>
-        </div>
-        <!--    Relationship    -->
-        <div>
-            <label for="relationship">Relation to you:</label>
-            <select name="relationship" id="relationship">
-                <option value="undefined" selected>undefined</option>
-                <option value="friend">friend</option>
-                <option value="parent">parent</option>
-                <option value="sibling">sibling</option>
-                <option value="best-friend">best friend</option>
-                <option value="significant other">significant other</option>
-                <option value="work relation">work relation</option>
-            </select>
+    <section class="toolbar" id="search-toolbar">
+        <div class="hidden">
+            <!--    GENDER    -->
+            <div class="tool">
+                <label for="gender">Gender:</label>
+                <select name="gender" id="gender">
+                    <option value="undefined" selected>undefined</option>
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                </select>
+
+            </div>
+            <hr>
+            <!--    AGE    -->
+            <div class="tool">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="0" max="110" placeholder="30">
+            </div>
+            <hr>
+            <!--    Relationship    -->
+            <div class="tool">
+                <label for="relationship">Relation to you:</label>
+                <select name="relationship" id="relationship">
+                    <option value="undefined" selected>undefined</option>
+                    <option value="friend">friend</option>
+                    <option value="parent">parent</option>
+                    <option value="sibling">sibling</option>
+                    <option value="best-friend">best friend</option>
+                    <option value="significant other">significant other</option>
+                    <option value="work relation">work relation</option>
+                </select>
+            </div>
+            <hr>
+            <!--    OPTIONS    -->
+            <div class="tool">
+                <label for="personalized" class="checkbox-container">
+                    <input type="checkbox" id="personalized" value="personalized" name="extra-options">
+                    <span class="checkmark"></span>
+                    Personalized
+                </label>
+                <label for="diy" class="checkbox-container">
+                    <input type="checkbox" id="diy" value="diy" name="extra-options">
+                    <span class="checkmark"></span>
+                    DIY
+                </label>
+                <label for="premade" class="checkbox-container">
+                    <input type="checkbox" id="premade" value="premade" name="extra-options">
+                    <span class="checkmark"></span>
+                    Premade
+                </label>
+                <label for="electronics" class="checkbox-container">
+                    <input type="checkbox" id="electronics" value="electronics" name="extra-options">
+                    <span class="checkmark"></span>
+                    Electronics
+                </label>
+                <label for="decorations" class="checkbox-container">
+                    <input type="checkbox" id="decorations" value="home decorations" name="extra-options">
+                    <span class="checkmark"></span>
+                    Decorations
+                </label>
+                <label for="books" class="checkbox-container">
+                    <input type="checkbox" id="books" value="books and comics" name="extra-options">
+                    <span class="checkmark"></span>
+                    Books
+                </label>
+                <label for="clothing" class="checkbox-container">
+                    <input type="checkbox" id="clothing" value="clothing, shoes, jewellery" name="extra-options">
+                    <span class="checkmark"></span>
+                    Clothing
+                </label>
+                <label for="toys" class="checkbox-container">
+                    <input type="checkbox" id="toys" value="children's toys" name="extra-options">
+                    <span class="checkmark"></span>
+                    Toys
+                </label>
+                <label for="gift-cards" class="checkbox-container">
+                    <input type="checkbox" id="gift-cards" value="gift cards or trips" name="extra-options">
+                    <span class="checkmark"></span>
+                    Gift cards / trips
+                </label>
+            </div>
+            <hr>
         </div>
         <!--    Optional suggestions    -->
-        <label for="user-suggestions">Any hobbies or suggestions:</label>
-        <input id="user-suggestions" type="text">
-        <button>Click here</button>
-        <p class="suggestions"></p>
+        <div class="tool">
+            <label for="user-suggestions"></label>
+            <input id="user-suggestions" type="text" placeholder="Suggestions or keywords:" autocomplete="off">
+        </div>
+        <button id="toggle-filters-button">Filters</button>
+        <button id="search" class="center">Search Santa's list</button>
     </section>
 
+    <section>
+        <div id="loading-div">
+            <span id="loading" class="loader hidden"></span>
+        </div>
+
+        <p id="description" class="hidden">By clicking on shown options, a google search for the item will open in a new tab.</p>
+        <div id="gift-options"></div>
+    </section>
 </main>
 
 <script src="utils.js"></script>
