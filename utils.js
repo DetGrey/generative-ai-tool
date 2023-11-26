@@ -2,7 +2,8 @@ const HUGGINGFACE_TOKEN = "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";
 
 // ---------------------------------------------------------------------------------------- GENERATE QUERY
 function generateQuery(filtersObject) {
-    let query = `Create a list of 10 gift options for `;
+    const length = document.querySelector('#length');
+    let query = `Create a list of ${length.value} gift options `;
     for (const filterKey in filtersObject) {
         if (filterKey.length > 0) {
             query += filtersObject[filterKey];
@@ -31,7 +32,7 @@ function fetchFilters() {
     }
 
     return {
-        gender: gender.value !== 'undefined' ? 'someone who is ' + gender.value + '. ' : '',
+        gender: gender.value !== 'undefined' ? 'for someone who is ' + gender.value + '. ' : '',
         age: age.value.length > 0 ? 'Their age is ' + age.value + '. ' : '',
         options: options.length > 0 ? 'The gift suggestions should be in one of the following categories: ' + options + '. ' : '',
         relationship: relationship.value !== 'undefined' ? 'The relation to you is: ' + relationship.value + '. ' : '',
@@ -74,20 +75,17 @@ function fetchText(query) {
 
 // ---------------------------------------------------------------------------------------- STYLE AND RENDER GENERATED TEXT
 function styleAndRenderGeneratedText(text) {
-    const array = text.split('\n').slice(1);
-    for (let option of array) {
+    const items = text.split('\n').slice(1);
+    for (let item of items) {
         const a = document.createElement('a');
         a.classList.add('gift-options');
-        a.href = `https://www.google.com/search?q=${option.split('. ')[1]}`;
+        a.href = `https://www.google.com/search?q=${item.split('. ')[1]}`;
         a.target = '_blank';
         a.rel = 'noopener noreferrer'; // https://stackoverflow.com/questions/17711146/how-to-open-link-in-a-new-tab-in-html
-        a.innerText = option.toString();
+        a.innerText = item.toString();
         giftOptions.appendChild(a);
 
         const hr = document.createElement('hr');
         giftOptions.appendChild(hr);
-        console.log(a)
     }
-    console.log(array)
-    return text;
 }

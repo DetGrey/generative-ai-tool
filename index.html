@@ -19,6 +19,13 @@
 <!--    ------------------------------------------------- FILTERS -->
     <section class="toolbar" id="search-toolbar">
         <div class="hidden">
+                <!--    List length    -->
+            <div class="tool">
+                <label for="length">Show</label>
+                <input type="number" id="length" name="length" min="1" max="30" value="10">
+                <label for="length">items</label>
+            </div>
+            <hr>
             <!--    GENDER    -->
             <div class="tool">
                 <label for="gender">Gender:</label>
@@ -27,7 +34,6 @@
                     <option value="male">male</option>
                     <option value="female">female</option>
                 </select>
-
             </div>
             <hr>
             <!--    AGE    -->
@@ -114,7 +120,7 @@
             <span id="loading" class="loader hidden"></span>
         </div>
 
-        <p id="description" class="hidden">By clicking on shown options, a google search for the item will open in a new tab.</p>
+        <p id="description" class="hidden">By clicking on the shown options, a google search for the item will open in a new tab.</p>
         <div id="gift-options"></div>
     </section>
 </main>

@@ -19,12 +19,12 @@ button.addEventListener("click", () => {
     description.classList.add('hidden');
     giftOptions.innerText = '';
     toggleHidden();
+    searchToolbar.firstElementChild.classList.add('hidden');
 
     getGeneratedText(generateQuery(fetchFilters()))
         .then(generatedText => {
             description.classList.remove('hidden');
             toggleHidden();
-            // giftOptions.innerText = generatedText;
             styleAndRenderGeneratedText(generatedText);
         });
 });
