@@ -22,11 +22,18 @@ button, select {
     cursor: pointer;
 }
 
+img {
+    width: 6vw;
+    padding: 0 2.5vw;
+}
+
 /* ----------------------------------------- HEADINGS AND TEXT */
 h1 {
+    display: flex;
+    align-items: center;
     background-color: var(--red);
     color: white;
-    padding: 4px 20px;
+    padding: 4px 10px;
     margin: 20px 0;
     font-family: 'Ysabeau SC', sans-serif;
     font-size: 9vw;
@@ -249,7 +256,6 @@ input[type=checkbox]:checked ~ .checkmark:after {
 @media screen and (min-width: 800px) {
     h1 {
         font-size: 7vw;
-        padding: 4px 30px;
     }
     h2 {
         font-size: 3vw;
@@ -276,7 +282,6 @@ input[type=checkbox]:checked ~ .checkmark:after {
     }
     h1 {
         font-size: 6vw;
-        padding: 4px 40px;
     }
     h2 {
         font-size: 2.5vw;
